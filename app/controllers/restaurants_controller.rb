@@ -17,7 +17,6 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-
     if @restaurant.save
       redirect_to @restaurant
     else
@@ -29,6 +28,8 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
+    @restaurant.destroy
+    redirect_to restaurants_path
   end
 
   private
